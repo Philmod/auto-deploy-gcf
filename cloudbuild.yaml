@@ -1,0 +1,14 @@
+steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - 'beta'
+  - 'functions'
+  - 'deploy'
+  - '$_FUNCTION_NAME'
+  - '--stage-bucket=$_BUCKET_NAME'
+  - '--entry-point=helloWorld'
+  - '--trigger-http'
+
+substitutions:
+  _FUNCTION_NAME: helloHttp
+  _BUCKET_NAME: philmod-tmp
